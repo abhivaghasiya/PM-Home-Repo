@@ -1,0 +1,42 @@
+<% content_for :breadcrumb do %>
+  <!--------------------
+  START - Breadcrumbs
+  -------------------->
+  <ul class="breadcrumb">
+    <li class="breadcrumb-item">
+      <span>
+        <a href="<%= root_path %>"> home</a> /
+        <a href="<%= projects_path %>"> projects </a> project/
+        <a href="<%= project_path %>"> show </a> show/
+        <a href="<%= tasks_path %>"> task </a> task/
+        <a href="<%= task_path %>"> show </a> show/
+        <a href="<%= notes_path %>"> note </a> note/
+        edit
+      </span>
+    </li>
+  </ul>
+  <!--------------------
+  END - Breadcrumbs
+  -------------------->
+<% end %>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="element-wrapper">
+      <h1 class="element-header col-sm-6" style="margin-left: 312px;">
+        Editing Note
+        <p id="notice"><%= notice %></p>
+      </h1>
+      <div class="text-right col-sm-6" style="margin-left: 312px;"">
+        <div class="btn btn-light btn-outline-dark">
+            <%= link_to 'Show', @note %>
+        </div>
+        <div class="btn btn-light btn-outline-dark">
+            <%= link_to '<< Back', notes_path %>
+        </div>
+      </div>
+      <br>
+      <%= render 'form', note: @note %>
+      <br>
+    </div>
+  </div>
+</div>

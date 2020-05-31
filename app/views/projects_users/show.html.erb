@@ -1,0 +1,34 @@
+<% content_for :breadcrumb do %>
+  <!--------------------
+  START - Breadcrumbs
+  -------------------->
+  <ul class="breadcrumb">
+    <li class="breadcrumb-item">
+      <span>Home/projects_users/show</span>
+    </li>
+  </ul>
+  <!--------------------
+  END - Breadcrumbs
+  -------------------->
+<% end %>
+<p id="notice"><%= notice %></p>
+
+<div class="text-center">
+  <div class="btn btn-light btn-outline-dark">
+    <%= link_to 'Edit', edit_projects_user_path(@projects_user) %>
+  </div>
+  |
+  <div class="btn btn-light btn-outline-dark">
+    <%= link_to 'Back', projects_users_path %>
+  </div>
+</div>
+
+<p>
+  <strong>Project:</strong>
+  <%= @projects_user.project_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @projects_user.user_id %>
+</p>

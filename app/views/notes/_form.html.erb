@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="col-sm-6" style="margin-left: 312px;">
+    <div class="element-wrapper">
+      <div class="element-box">
+      <%= form_with(model: note, local: true) do |form| %>
+
+        <% if note.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h2>
+
+            <ul>
+              <% note.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <div class="form-group row">
+            <div class="col-sm-4 ">
+              <label class="col-form-label" for=""> <strong>  <%= form.label :task_id %> :</strong></label>
+            </div>
+            <!-- NICHE NA DIV MATHI FORM-CONTROL KADHI NAKHI TO DESIGN MA 2 NAY AAVE -->
+            <div class="col-sm-8 form-control">
+              <strong>
+                <div class="form-control">
+                  <%= @task.title %>
+                </div>
+                <%#= form.text_field :task_id, class: "form-control", placeholder: "Task_id"%>
+                <%#= form.select(:task_id, options_for_select(Task.pluck(:title, :id)), {prompt: 'Select'}, class: "form-control") %>
+              </strong>
+            </div>
+            <% if note.errors.any? %>
+            <div class="col-sm-8 form-control">
+              <%= note.errors.messages[:task_id].join(', ') %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="form-group row">
+            <div class="col-sm-4 ">
+              <label class="col-form-label" for=""> <strong>  <%= form.label :body %> :</strong></label>
+            </div>
+            <!-- NICHE NA DIV MATHI FORM-CONTROL KADHI NAKHI TO DESIGN MA 2 NAY AAVE -->
+            <div class="col-sm-8 form-control">
+              <strong>
+                <%= form.text_area :body, class: "form-control", placeholder: "Body"%>
+              </strong>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="field">
+          <div class="form-group row">
+            <div class="col-sm-4 ">
+              <label class="col-form-label" for=""> <strong>  <%= form.label :user_id %> :</strong></label>
+            </div>
+            <!-- NICHE NA DIV MATHI FORM-CONTROL KADHI NAKHI TO DESIGN MA 2 NAY AAVE -->
+            <div class="col-sm-8 form-control">
+              <strong>
+                <%# <%= form.text_field :user_id, class: "form-control", placeholder: "User_id"  %>
+                <%= select_tag(:user_id, options_for_select(User.pluck(:name, :id)), prompt: 'Select',class: "form-control") %>
+              </strong>
+            </div>
+            <% if note.errors.any? %>
+            <div class="col-sm-8 form-control">
+              <%= note.errors.messages[:user_id].join(', ') %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="actions text-center" style="padding-top: 12px">
+          <%= form.submit class:"btn btn-light btn-outline-dark"%>
+        </div>
+      <% end %>

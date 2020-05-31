@@ -1,0 +1,61 @@
+<% content_for :breadcrumb do %>
+  <!--------------------
+  START - Breadcrumbs
+  -------------------->
+  <ul class="breadcrumb">
+    <li class="breadcrumb-item">
+      <span>Project_users</span>
+    </li>
+  </ul>
+  <!--------------------
+  END - Breadcrumbs
+  -------------------->
+<% end %>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="element-wrapper">
+      <p id="notice"><%= notice %></p>
+
+      <h1>Projects Users</h1>
+
+      <div class="element-box">
+        <h6 class="element-header">
+          <h3 class="text-right">
+            <div class="btn btn-light btn-outline-dark">
+              <%= link_to 'New Projects User', new_projects_user_path %>
+            </div>
+          </h3>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Project</th>
+                <th>User</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @projects_users.each do |projects_user| %>
+                <tr>
+                  <td><%= projects_user.project_id %></td>
+                  <td><%= projects_user.user_id %></td>
+                  <td><%= link_to 'Show', projects_user, class:"btn btn-outline-dark"  %></td>
+                  <td><%= link_to 'Edit', edit_projects_user_path(projects_user), class:"btn btn-outline-dark"  %></td>
+                  <td><%= link_to 'Destroy', projects_user, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-dark" %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+          <br>
+
+
+        </h6>
+
+        <%= paginate @projects_users %>
+        <%= page_entries_info @projects_users %>
+      </div>
+    </div>
+  </div>
+</div>

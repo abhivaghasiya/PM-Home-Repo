@@ -1,0 +1,41 @@
+<% content_for :breadcrumb do %>
+  <!--------------------
+  START - Breadcrumbs
+  -------------------->
+  <ul class="breadcrumb">
+    <li class="breadcrumb-item">
+      <span>
+        <a href="<%= root_path %>"> home</a>/
+        <a href="<%= projects_path %>"> project </a> project/
+        <a href="<%= project_path %>"> show </a> show/
+        <a href="<%= tasks_path %>"> task </a> task/
+        edit
+      </span>
+    </li>
+  </ul>
+  <!--------------------
+  END - Breadcrumbs
+  -------------------->
+<% end %>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="element-wrapper">
+      <h3 class="element-header col-sm-6" style="margin-left: 312px;">
+        <i class="os-icon os-icon-edit"></i>
+        Editing Task
+        <p id="notice"><%= notice %></p>
+      </h3>
+      <div class="text-right col-sm-6" style="margin-left: 312px;"">
+        <div class="btn btn-light btn-outline-dark">
+          <%= link_to 'Show', project_task_path(@project, @task) %>
+        </div>
+        <div class="btn btn-light btn-outline-dark">
+          <%= link_to '<< Back', project_tasks_path(@project) %>
+        </div>
+      </div>
+      <br>
+      <%= render 'form', task: @task %>
+      <br>
+    </div>
+  </div>
+</div>

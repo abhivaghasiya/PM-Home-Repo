@@ -1,0 +1,78 @@
+<% content_for :breadcrumb do %>
+  <!--------------------
+  START - Breadcrumbs
+  -------------------->
+  <ul class="breadcrumb">
+    <li class="breadcrumb-item">
+      <span>
+        <a href="<%= root_path %>"> home</a>/
+        user</span>
+    </li>
+  </ul>
+  <!--------------------
+  END - Breadcrumbs
+  -------------------->
+<% end %>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="element-wrapper">
+      <p id="notice"><%= notice %></p>
+
+      <h6 class="element-header">
+        Users
+      </h6>
+
+
+      <div class="element-box">
+
+        <h3 class="text-right">
+          <div class="">
+            <%= link_to '', new_user_path, class:"os-icon os-icon-user-plus" %>
+          </div>
+        </h3>
+
+
+        <br><br>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th <%= link_to "Name", column: @column, direction: @direction == 'asc' ? 'desc' : 'asc' %></th>
+              <!-- <th>Name</th> -->
+              <th>Mobile</th>
+              <th>Country</th>
+              <th>State</th>
+              <th>City</th>
+              <th>Gender</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th colspan="4"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @users.each do |user| %>
+            <tr>
+              <td><%= user.name %></td>
+              <td><%= user.mobile %></td>
+              <td><%= link_to user.country, "https://www.google.com/maps/place/search?q=#{user.country}", target: "_blank" %></td>
+              <td><%= link_to user.state, "https://www.google.com/maps/place/search?q=#{user.state}", target: "_blank" %></td>
+              <td><%= link_to user.city, "https://www.google.com/maps/place/search?q=#{user.city}", target: "_blank" %></td>
+              <td><%= user.gender %></td>
+              <td><%= user.email %></td>
+              <td><%= user.role %></td>
+              <td><%= link_to '', user, class:"os-icon os-icon-grid-10" %></td>
+              <td><%= link_to '', edit_user_path(user), class:"os-icon os-icon-ui-49" %></td>
+              <td><%= link_to '', user, method: :delete, data: { confirm: 'Are you sure?' }, class:"os-icon os-icon-ui-15 danger", style:"color: darkred;" %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <br>
+
+        <%= paginate @users %>
+        <%= page_entries_info @users %>
+      </div>
+    </div>
+  </div>
+</div>

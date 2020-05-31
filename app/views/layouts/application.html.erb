@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pm</title>
+    <meta charset="utf-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body class="menu-position-side menu-side-left full-screen with-content-panel">
+    <div class="all-wrapper with-side-panel solid-bg-all">
+      <div class="layout-w">
+
+        <%= render 'layouts/mobile_menu' %>
+        <%= render 'layouts/menu' %>
+        <div class="content-w">
+          <%= render 'layouts/top' %>
+
+          <%= yield :breadcrumb %>
+
+          <div class="content-i">
+            <div class="content-box">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="display-type"></div>
+      <%= render 'layouts/footer' %>
+    </div>
+
+
+    <%= javascript_include_tag 'application' %>
+
+
+
+
+  <%= javascript_tag do %>
+  <%# alert("My example alert box."); %>
+
+    $(function() {
+      alert('Page and Javascript loaded!');
+      $('#liDashboard').click(function() {
+        alert('You want to edit options for chart1!');
+      });
+    });
+  <% end %>
+
+  <% content_for :javascript_includes do %>
+    <%= javascript_include_tag "menuhover.js" %>
+  <% end %>
+
+  </body>
+</html>

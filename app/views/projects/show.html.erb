@@ -1,0 +1,183 @@
+<% content_for :breadcrumb do %>
+  <!--------------------
+  START - Breadcrumbs
+  -------------------->
+  <ul class="breadcrumb">
+    <li class="breadcrumb-item">
+      <span>
+        <a href="<%= root_path %>"> home</a> /
+        <a href="<%= projects_path %> "> project </a> /
+        show
+      </span>
+    </li>
+  </ul>
+  <!--------------------
+  END - Breadcrumbs
+  -------------------->
+<% end %>
+<div class="row">
+  <div class="col-sm-6" style="margin-left: 312px;">
+    <div class="element-wrapper">
+      <h3 class="element-header text-center">
+        <i class="os-icon os-icon-eye"></i>
+        Project Show
+        <p id="notice"><%= notice %></p>
+      </h3>
+
+      <div class="element-box text-center">
+        <h5 class="form-header">
+          This project name <%= @project.title %>. Manager is <%= @project.manager_id %>.
+        </h5>
+        <div class="form-desc">
+          Welcome in PM by Abhi.
+        </div>
+        <h3 class="text-right">
+          <div class="btn btn-light btn-outline-dark">
+            <%= link_to 'Edit', edit_project_path(@project) %>
+          </div>
+          <div class="btn btn-light btn-outline-dark">
+            <%= link_to '<< Back', projects_path(@project) %>
+          </div>
+        </h3>
+        <br>
+        <div class="form-group row">
+          <div class="col-sm-4 form-control">
+            <label class="col-form form-control"  style="border-left-width: 10px;"> <strong>Title</strong></label>
+          </div>
+            <i class="col-sm-1 os-icon os-icon-chevrons-right" style="padding-top: 20px;"></i>
+          <div class="col-sm-7 form-control">
+            <div class="form-control">
+              <strong><%= @project.title %></strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-4 form-control">
+            <label class="col-form form-control"  style="border-left-width: 10px;"> <strong>Description</strong></label>
+          </div>
+            <i class="col-sm-1 os-icon os-icon-chevrons-right" style="padding-top: 20px;"></i>
+          <div class="col-sm-7 form-control">
+            <div class="form-control">
+              <strong><%= @project.description %></strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-4 form-control">
+            <label class="col-form form-control"  style="border-left-width: 10px;"> <strong>Manager</strong></label>
+          </div>
+            <i class="col-sm-1 os-icon os-icon-chevrons-right" style="padding-top: 20px;"></i>
+          <div class="col-sm-7 form-control">
+            <div class="form-control">
+              <strong><%= @project.manager.name %></strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-4 form-control">
+            <label class="col-form form-control"  style="border-left-width: 10px;"> <strong>Website</strong></label>
+          </div>
+            <i class="col-sm-1 os-icon os-icon-chevrons-right" style="padding-top: 20px;"></i>
+          <div class="col-sm-7 form-control">
+            <div class="form-control">
+              <strong><%= @project.website %></strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-4 form-control">
+            <label class="col-form form-control"  style="border-left-width: 10px;"> <strong>Start date</strong></label>
+          </div>
+            <i class="col-sm-1 os-icon os-icon-chevrons-right" style="padding-top: 20px;"></i>
+          <div class="col-sm-7 form-control">
+            <div class="form-control">
+              <strong><%= @project.start_date.strftime("%m/%d/%Y") %></strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-4 form-control">
+            <label class="col-form form-control"  style="border-left-width: 10px;"> <strong>End date</strong></label>
+          </div>
+            <i class="col-sm-1 os-icon os-icon-chevrons-right" style="padding-top: 20px;"></i>
+          <div class="col-sm-7 form-control">
+            <div class="form-control">
+              <strong><%= @project.end_date.strftime("%m/%d/%Y") %></strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-4 form-control">
+            <label class="col-form form-control"  style="border-left-width: 10px;"> <strong>Active</strong></label>
+          </div>
+            <i class="col-sm-1 os-icon os-icon-chevrons-right" style="padding-top: 20px;"></i>
+          <div class="col-sm-7 form-control">
+            <div class="form-control">
+              <strong><%= @project.active %></strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="element-wrapper">
+      <div class="element-box">
+        <h5 class="form-header">
+          Project task
+        </h5>
+        <div class="form-desc">
+          Welcome in PM by Abhi.
+        </div>
+        <div class="text-right">
+          <div class="">
+            <%= link_to ' ', new_project_task_path(@project.id), class:"os-icon os-icon-plus-square", style:"font-size: xx-large;" %>
+          </div>
+        </div>
+        <br>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Status</th>
+              <th>User</th>
+              <th>Start date</th>
+              <th>End date</th>
+              <th>Spend time</th>
+              <th>Estimated time</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @project.tasks.each do |task| %>
+            <tr>
+              <td><%= task.title %></td>
+              <td><%= task.description %></td>
+              <td><%= task.status %></td>
+              <td><%= link_to task.user.name, task.user %></td>
+              <td><%= task.start_date.strftime("%m/%d/%Y") %></td>
+              <td><%= task.end_date.strftime("%m/%d/%Y") %></td>
+              <td><%= task.spend_time %></td>
+              <td><%= task.estimated_time %></td>
+              <td><%= link_to '', project_task_path(@project, task), class:"os-icon os-icon-grid-10" %></td>
+              <td><%= link_to '', edit_project_task_path(@project, task), class:"os-icon os-icon-ui-49" %></td>
+              <td><%= link_to '', url_for([@project, task]), method: :delete, data: { confirm: 'Are you sure?' }, class:"os-icon os-icon-ui-15", style:"color: darkred;" %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<% if User.where(role: :Admin) %>
+		<%= render 'admin_dashboard' %>
+	<% elsif User.where(role: :Devloper) %>
+		<%= render 'devloper_dashboard' %>
+	<% elsif %>
+	 	<%= render 'introduction' %>
+<% end %>

@@ -1,0 +1,98 @@
+<% content_for :breadcrumb do %>
+  <!--------------------
+  START - Breadcrumbs
+  -------------------->
+  <ul class="breadcrumb">
+    <li class="breadcrumb-item">
+      <span>
+        <a href="<%= root_path %>"> home</a> /
+        project
+      </span>
+    </li>
+  </ul>
+  <!--------------------
+  END - Breadcrumbs
+  -------------------->
+<% end %>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="element-wrapper">
+      <p id="notice"><%= notice %></p>
+      <h6 class="element-header">
+        <b>Projects</b>
+      </h6>
+      <div class="element-box">
+        <h3 class="text-right">
+          <div class="">
+            <%= link_to '', new_project_path, class:"os-icon os-icon-plus-square" %>
+          </div>
+        </h3>
+
+        <!--------------------
+          start - search table iteam
+          -------------------->
+        <%= form_tag projects_path, method: 'get' do %>
+        <div class="row" style="padding-left: 400px;" >
+          <div class="col-sm-3">
+              <%= text_field_tag :search, params[:search], placeholder:"Start typing to search...", class:"form-control" %>
+          </div>
+          <div class="col-sm-1">
+            <%= submit_tag "search", class: 'btn btn-primary', style:"margin-top: 5px;" %>
+          </div>
+        </div>
+        <% end %>
+        <!--------------------
+          End - search table iteam
+          -------------------->
+
+          <br><br>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Manager</th>
+              <th>Website</th>
+              <th>Start date</th>
+              <th>End date</th>
+              <th>Active</th>
+              <th colspan="4"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @projects.each do |project| %>
+            <tr>
+              <td><%= project.title %></td>
+              <td><%= project.description %></td>
+              <td><%= link_to project.manager.name, project.manager %></td>
+              <td><%= link_to project.website, "http://www.google.de/search?q=#{project.website}", target: "_blank"%></td>
+              <td><%= project.start_date.strftime("%m/%d/%Y") %></td>
+              <td><%= project.end_date.strftime("%m/%d/%Y") %></td>
+              <td><%= project.active ? 'Yes' : 'No' %></td>
+              <td><%= link_to '', project, class:"os-icon os-icon-grid-10" %></td>
+              <td><%= link_to '', edit_project_path(project), class:"os-icon os-icon-ui-49" %></td>
+              <td><a class="os-icon os-icon-ui-15"> <%= button_to '✖', project, method: :delete, data: { confirm: 'Are you sure?' }, style:"color: darkred; background-color: transparent; border: 0px;" %> </a></td>
+              <td><% if project.active %>
+                <%= link_to "", deactive_project_path(project), method: :put, class: "os-icon os-icon-toggle-right", data: { confirm: 'Are you sure?' }, style:"color: darkgreen;" %>
+                <% else %>
+                <%= link_to "", active_project_path(project), method: :put, class: "os-icon os-icon-toggle-left", data: { confirm: 'Are you sure?' }, style:"color: darkred;" %>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <br>
+        <div class="row">
+          <div class="col-sm-6">
+            <%= page_entries_info @projects %>
+          </div>
+          <div class="col-sm-6">
+            <%= paginate @projects %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

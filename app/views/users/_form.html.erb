@@ -1,0 +1,151 @@
+<div class="row">
+  <div class="col-sm-6" style="margin-left: 312px;">
+    <div class="element-wrapper">
+      <div class="element-box">
+      <%= form_with(model: user, local: true) do |form| %>
+
+        <div class="field">
+          <div class="form-group row">
+            <div class="col-sm-4 ">
+              <label class="col-form-label" for=""> <strong>  <%= form.label :name %> :</strong></label>
+            </div>
+            <!-- NICHE NA DIV MATHI FORM-CONTROL KADHI NAKHI TO DESIGN MA 2 NAY AAVE -->
+            <div class="col-sm-8 form-control">
+              <strong><%= form.text_field :name, class: "form-control", placeholder: "Name" %></strong>
+            </div>
+            <% if user.errors.any? %>
+            <div class="col-sm-8 form-control">
+              <%= user.errors.messages[:name].join(', ') %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="form-group row">
+            <div class="col-sm-4 ">
+              <label class="col-form-label" for=""> <strong>  <%= form.label :mobile %> :</strong></label>
+            </div>
+            <!-- NICHE NA DIV MATHI FORM-CONTROL KADHI NAKHI TO DESIGN MA 2 NAY AAVE -->
+            <div class="col-sm-8 form-control">
+              <strong><%= form.text_field :mobile, class: "form-control", placeholder: "Mobile" %></strong>
+            </div>
+            <% if user.errors.any? %>
+            <div class="col-sm-8 form-control">
+              <%= user.errors.messages[:mobile].join(', ') %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="form-group row">
+            <div class="col-sm-4 ">
+              <label class="col-form-label" for=""> <strong> <%= form.label :country %> :</strong></label>
+            </div>
+            <!-- NICHE NA DIV MATHI FORM-CONTROL KADHI NAKHI TO DESIGN MA 2 NAY AAVE -->
+            <div class="col-sm-8 form-control">
+              <strong>
+                <%= form.text_field :country, class: "form-control", placeholder: "Country" %>
+              </strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="form-group row">
+            <div class="col-sm-4 ">
+              <label class="col-form-label" for=""> <strong> <%= form.label :state %> :</strong></label>
+            </div>
+            <!-- NICHE NA DIV MATHI FORM-CONTROL KADHI NAKHI TO DESIGN MA 2 NAY AAVE -->
+            <div class="col-sm-8 form-control">
+              <strong>
+                <%= form.text_field :state, class: "form-control", placeholder: "State" %>
+              </strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="form-group row">
+            <div class="col-sm-4 ">
+              <label class="col-form-label" for=""> <strong>   <%= form.label :city %> :</strong></label>
+            </div>
+            <!-- NICHE NA DIV MATHI FORM-CONTROL KADHI NAKHI TO DESIGN MA 2 NAY AAVE -->
+            <div class="col-sm-8 form-control">
+              <strong>
+              <%= form.text_field :city, class: "form-control", placeholder: "City" %>
+              </strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="form-group row">
+            <div class="col-sm-4 ">
+              <label class="col-form-label" for=""> <strong>  <%= form.label :gender %> :</strong></label>
+            </div>
+            <!-- NICHE NA DIV MATHI FORM-CONTROL KADHI NAKHI TO DESIGN MA 2 NAY AAVE -->
+            <div class="col-sm-8 form-control">
+              <strong>
+              <%= form.text_field :gender, class: "form-control", placeholder: "Gender" %>
+              </strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="form-group row">
+            <div class="col-sm-4 ">
+              <label class="col-form-label" for=""> <strong>  <%= form.label :email %> :</strong></label>
+            </div>
+            <!-- NICHE NA DIV MATHI FORM-CONTROL KADHI NAKHI TO DESIGN MA 2 NAY AAVE -->
+            <div class="col-sm-8 form-control">
+              <strong><%= form.text_field :email, class: "form-control", placeholder: "E-mail" %></strong>
+            </div>
+            <% if user.errors.any? %>
+            <div class="col-sm-8 form-control">
+              <%= user.errors.messages[:email].join(', ') %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="form-group row">
+            <div class="col-sm-4 ">
+              <label class="col-form-label" for=""> <strong> <%= form.label :role %> :</strong></label>
+            </div>
+            <!-- NICHE NA DIV MATHI FORM-CONTROL KADHI NAKHI TO DESIGN MA 2 NAY AAVE -->
+            <div class="col-sm-8 form-control">
+              <strong>
+                <%# <%= form.text_field :role, class: "form-control", placeholder: "Role" %>
+                <%= form.select(:role,  raw('<option>Admin</option>,<option>Devloper</option>'), { prompt: '-- Select --'},class: "form-control") %>
+              </strong>
+            </div>
+            <% if user.errors.any? %>
+            <div class="col-sm-8 form-control">
+              <%= user.errors.messages[:role].join(', ') %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+
+        <br>
+        <div class="field" style="text-align: center;">
+          <div class="form-group row">
+            <div class="form-check">
+              <label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to terms and conditions</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions text-center" style="padding-top: 12px">
+          <%= form.submit class:"btn btn-light btn-outline-dark"%>
+        </div>
+
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

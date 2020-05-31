@@ -1,0 +1,138 @@
+<div class="row">
+  <div class="col-sm-6" style="margin-left: 312px;">
+    <div class="element-wrapper">
+      <div class="element-box">
+        <%= form_with(model: task, url: [@project, task], local: true) do |form| %>
+        <div class="field">
+          <div class="form-group row">
+            <div class="col-sm-4 ">
+              <label class="col-form-label" for=""> <strong><%= form.label :title %> :</strong></label>
+            </div>
+            <!-- NICHE NA DIV MATHI FORM-CONTROL KADHI NAKHI TO DESIGN MA 2 NAY AAVE -->
+            <div class="col-sm-8 form-control">
+              <strong><%= form.text_field :title, class: "form-control", placeholder: "Title"%></strong>
+            </div>
+            <% if task.errors.any? %>
+            <div class="col-sm-8 form-control">
+              <%= task.errors.messages[:title].join(', ') %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="form-group row">
+            <div class="col-sm-4 ">
+              <label class="col-form-label" for=""> <strong><%= form.label :description %> :</strong></label>
+            </div>
+            <!-- NICHE NA DIV MATHI FORM-CONTROL KADHI NAKHI TO DESIGN MA 2 NAY AAVE -->
+            <div class="col-sm-8 form-control">
+              <strong><%= form.text_area :description, class: "form-control", placeholder: "Description"  %></strong>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="field">
+          <div class="form-group row">
+            <div class="col-sm-4 ">
+              <label class="col-form-label" for=""> <strong><%= form.label :status %> :</strong></label>
+            </div>
+            <!-- NICHE NA DIV MATHI FORM-CONTROL KADHI NAKHI TO DESIGN MA 2 NAY AAVE -->
+            <div class="col-sm-8 form-control">
+              <strong>
+                <%# <%= form.text_field :status, class: "form-control", placeholder: "Status"  %>
+                <%= form.select(:status,  raw('<option>Active</option>,<option>Close</option>,<option>New</option>'), { prompt: 'New'},class: "form-control") %>
+              </strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="form-group row">
+            <div class="col-sm-4 ">
+              <label class="col-form-label" for=""> <strong><%= form.label :user_id %> :</strong></label>
+            </div>
+            <!-- NICHE NA DIV MATHI FORM-CONTROL KADHI NAKHI TO DESIGN MA 2 NAY AAVE -->
+            <div class="col-sm-8 form-control">
+              <strong>
+                <%# <%= form.text_field :user_id, class: "form-control", placeholder: "User_id"  %>
+                <%= form.select(:user_id, User.pluck(:name, :id), { prompt: 'Select'},class: "form-control") %>
+              </strong>
+            </div>
+            <% if task.errors.any? %>
+            <div class="col-sm-8 form-control">
+              <%= task.errors.messages[:user_id].join(', ') %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="form-group row">
+            <div class="col-sm-4 ">
+              <label class="col-form-label" for=""> <strong>  <%= form.label :start_date %> :</strong></label>
+            </div>
+            <!-- NICHE NA DIV MATHI FORM-CONTROL KADHI NAKHI TO DESIGN MA 2 NAY AAVE -->
+            <div class="col-sm-8 form-control">
+              <strong>
+                <%= form.date_field :start_date, class: "form-control", placeholder: "Start_date"  %>
+              </strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="form-group row">
+            <div class="col-sm-4 ">
+              <label class="col-form-label" for=""> <strong><%= form.label :end_date %> :</strong></label>
+            </div>
+            <!-- NICHE NA DIV MATHI FORM-CONTROL KADHI NAKHI TO DESIGN MA 2 NAY AAVE -->
+            <div class="col-sm-8 form-control">
+              <strong>
+                <%= form.date_field :end_date, class: "form-control", placeholder: "End_date"  %>
+              </strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="form-group row">
+            <div class="col-sm-4 ">
+              <label class="col-form-label" for=""> <strong><%= form.label :spend_time %> :</strong></label>
+            </div>
+            <!-- NICHE NA DIV MATHI FORM-CONTROL KADHI NAKHI TO DESIGN MA 2 NAY AAVE -->
+            <div class="col-sm-8 form-control">
+              <strong>
+                <%= form.text_field :spend_time, class: "form-control", placeholder: "Spend_time"  %>
+              </strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="form-group row">
+            <div class="col-sm-4 ">
+              <label class="col-form-label" for=""> <strong><%= form.label :estimated_time %> :</strong></label>
+            </div>
+            <!-- NICHE NA DIV MATHI FORM-CONTROL KADHI NAKHI TO DESIGN MA 2 NAY AAVE -->
+            <div class="col-sm-8 form-control">
+              <strong>
+                <%= form.text_field :estimated_time, class: "form-control", placeholder: "Estimated_time"  %>
+              </strong>
+            </div>
+            <% if task.errors.any? %>
+            <div class="col-sm-8 form-control">
+              <%= task.errors.messages[:estimated_time].join(', ') %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="actions text-center" style="padding-top: 12px">
+          <%= form.submit class:"btn btn-light btn-outline-dark"%>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

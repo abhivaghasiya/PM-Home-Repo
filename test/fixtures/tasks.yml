@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  title: MyString
+  description: MyText
+  status: MyString
+  user: one
+  start_date: 2020-03-04 11:32:20
+  end_date: 2020-03-04 11:32:20
+  spend_time: 9.99
+  estimated_time: 9.99
+
+two:
+  project: two
+  title: MyString
+  description: MyText
+  status: MyString
+  user: two
+  start_date: 2020-03-04 11:32:20
+  end_date: 2020-03-04 11:32:20
+  spend_time: 9.99
+  estimated_time: 9.99

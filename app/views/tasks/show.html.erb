@@ -1,0 +1,202 @@
+<% content_for :breadcrumb do %>
+  <!--------------------
+  START - Breadcrumbs
+  -------------------->
+  <ul class="breadcrumb">
+    <li class="breadcrumb-item">
+      <span>
+        <a href="<%= root_path %>"> home</a> /
+        <a href="<%= projects_path %> "> project </a> /
+        <a href="<%= project_path %> "> Show </a>/
+        <a href="<%= tasks_path %>"> task </a> /
+        show
+      </span>
+    </li>
+  </ul>
+  <!--------------------
+  END - Breadcrumbs
+  -------------------->
+<% end %>
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-sm-6" style="margin-left: 312px;">
+    <div class="element-wrapper">
+      <h3 class="element-header text-center">
+        <i class="os-icon os-icon-eye"></i>
+        Task Show
+        <p id="notice"><%= notice %></p>
+      </h3>
+
+      <div class="element-box text-center">
+        <h5 class="form-header">
+          This project name <%= @project.title %>. Task title is <%= @task.title %>. This task create by <strong><%= @task.user_id %></strong>
+        </h5>
+        <div class="form-desc">
+          Welcome in PM by Abhi.
+        </div>
+        <div class="text-right">
+          <div class="btn btn-light btn-outline-dark">
+            <%= link_to 'Edit', edit_project_task_path(@project, @task) %>
+          </div>
+          <div class="btn btn-light btn-outline-dark">
+            <%= link_to '<< Back', project_path(@project) %>
+          </div>
+        </div>
+        <br>
+        <br>
+
+
+        <div class="form-group row">
+          <div class="col-sm-4 form-control">
+            <label class="col-form form-control"  style="border-left-width: 10px;"> <strong>Project</strong></label>
+          </div>
+            <i class="col-sm-1 os-icon os-icon-chevrons-right" style="padding-top: 20px;"></i>
+          <div class="col-sm-7 form-control">
+            <div class="form-control">
+              <strong><%= @task.project_id %></strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-4 form-control">
+            <label class="col-form form-control"  style="border-left-width: 10px;"> <strong>Title</strong></label>
+          </div>
+            <i class="col-sm-1 os-icon os-icon-chevrons-right" style="padding-top: 20px;"></i>
+          <div class="col-sm-7 form-control">
+            <div class="form-control">
+              <strong><%= @task.title %></strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-4 form-control">
+            <label class="col-form form-control"  style="border-left-width: 10px;"> <strong>Description</strong></label>
+          </div>
+            <i class="col-sm-1 os-icon os-icon-chevrons-right" style="padding-top: 20px;"></i>
+          <div class="col-sm-7 form-control">
+            <div class="form-control">
+              <strong><%= @task.description %></strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-4 form-control">
+            <label class="col-form form-control"  style="border-left-width: 10px;"> <strong>Status</strong></label>
+          </div>
+            <i class="col-sm-1 os-icon os-icon-chevrons-right" style="padding-top: 20px;"></i>
+          <div class="col-sm-7 form-control">
+            <div class="form-control">
+              <strong><%= @task.status %></strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-4 form-control">
+            <label class="col-form form-control"  style="border-left-width: 10px;"> <strong>User</strong></label>
+          </div>
+            <i class="col-sm-1 os-icon os-icon-chevrons-right" style="padding-top: 20px;"></i>
+          <div class="col-sm-7 form-control">
+            <div class="form-control">
+              <strong><%= @task.user_id %></strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-4 form-control">
+            <label class="col-form form-control"  style="border-left-width: 10px;"> <strong>tart date</strong></label>
+          </div>
+            <i class="col-sm-1 os-icon os-icon-chevrons-right" style="padding-top: 20px;"></i>
+          <div class="col-sm-7 form-control">
+            <div class="form-control">
+              <strong><%= @task.start_date %></strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-4 form-control">
+            <label class="col-form form-control"  style="border-left-width: 10px;"> <strong>End date</strong></label>
+          </div>
+            <i class="col-sm-1 os-icon os-icon-chevrons-right" style="padding-top: 20px;"></i>
+          <div class="col-sm-7 form-control">
+            <div class="form-control">
+              <strong><%= @task.end_date %></strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-4 form-control">
+            <label class="col-form form-control"  style="border-left-width: 10px;"> <strong>Spend time</strong></label>
+          </div>
+            <i class="col-sm-1 os-icon os-icon-chevrons-right" style="padding-top: 20px;"></i>
+          <div class="col-sm-7 form-control">
+            <div class="form-control">
+              <strong><%= @task.spend_time %></strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-4 form-control">
+            <label class="col-form form-control"  style="border-left-width: 10px;"> <strong>Estimated time</strong></label>
+          </div>
+            <i class="col-sm-1 os-icon os-icon-chevrons-right" style="padding-top: 20px;"></i>
+          <div class="col-sm-7 form-control">
+            <div class="form-control">
+              <strong><%= @task.estimated_time %></strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="element-wrapper">
+      <div class="element-box">
+        <h5 class="form-header">
+          Task note
+        </h5>
+        <div class="form-desc">
+          Welcome in PM by Abhi.
+        </div>
+        <div class="text-right">
+          <div class="">
+            <%= link_to '', new_project_task_note_path(@project.id, @task.id), class:"os-icon os-icon-plus-square", style:"font-size: xx-large;" %>
+          </div>
+        </div>
+        <br>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Task</th>
+              <th>Body</th>
+              <th>User</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @task.notes.each do |note| %>
+              <tr>
+                <td><%= link_to note.task.title, note.task %></td>
+                <td><%= note.body %></td>
+                <td><%= link_to note.user.name, note.user %></td>
+                <td><%= link_to '',  project_task_note_path(@project, @task, note), class:"os-icon os-icon-grid-10" %></td>
+                <td><%= link_to '', edit_project_task_note_path(@project, @task, note), class:"os-icon os-icon-grid-49" %></td>
+                <td><%= link_to '', url_for([@project, @task, note]), method: :delete, data: { confirm: 'Are you sure?' }, class:"os-icon os-icon-grid-15", style:"color: darkred;" %></td>
+              </tr>
+              <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

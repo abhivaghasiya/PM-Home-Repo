@@ -1,0 +1,408 @@
+<% content_for :breadcrumb do %>
+  <!--------------------
+  START - Breadcrumbs
+  -------------------->
+  <ul class="breadcrumb">
+    <li class="breadcrumb-item">
+      <span>Devloper_Dashbord</span>
+    </li>
+  </ul>
+  <!--------------------
+  END - Breadcrumbs
+  -------------------->
+  <% end %>
+<div class="row">
+    <div class="col-sm-12">
+      <div class="element-wrapper">
+        <h6 class="element-header">
+         Introduction
+        </h6>
+        <div class="element-box">
+            Project management is the discipline of managing all the different resources and aspects of the project in such a way that the resources will deliver all the output that is required to complete the project within the defined scope, time, and cost constraints.
+        </div>
+      </div>
+      <div class="element-wrapper">
+        <h6 class="element-header">
+          My Project
+        </h6>
+        <div class="element-wrapper">
+          <div class="element-box">
+            <div class="table-responsive">
+              <table class="table table-lightborder">
+                <thead>
+                  <tr>
+                    <th>
+                      TITLE
+                    </th>
+                    <th>
+                      DESCRIPTION
+                    </th>
+                    <th>
+                      MANAGER
+                    </th>
+                    <th>
+                      WEBSITE
+                    </th>
+                    <th>
+                      START DATE
+                    </th>
+                    <th>
+                      END DATE
+                    </th>
+                    <th>
+                      ACTIVE
+                    </th>
+                    <th>
+                      TASK SHOW
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @projects.each do |project| %>
+                    <tr>
+                      <td>
+                        <%= project.title %>
+                      </td>
+                      <td>
+                        <%= project.description %>
+                      </td>
+                      <td>
+                        <%= link_to project.manager.name, project.manager %>
+                      </td>
+                      <td>
+                        <%= link_to project.website, "http://www.google.de/search?q=#{project.website}", target: "_blank" %>
+                      </td>
+                      <td>
+                        <%= project.start_date.strftime("%m/%d/%Y") %>
+                      </td>
+                      <td>
+                        <%= project.end_date.strftime("%m/%d/%Y") %>
+                      </td>
+                      <td>
+                        <%= project.active %>
+                      </td>
+                      <td>
+                        <%= link_to 'View Task', project, class:"btn btn-outline-dark" %>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="element-wrapper">
+        <h6 class="element-header">
+          Task
+        </h6>
+        <div class="element-box">
+          <div class="element-header">
+            My Task
+          </div>
+          <div class="table-responsive">
+            <table class="table table-lightborder">
+              <thead>
+                <tr>
+                  <th>
+                    TITLE
+                  </th>
+                  <th>
+                    DESCRIPTION
+                  </th>
+                  <th>
+                    STATUS
+                  </th>
+                  <th>
+                    USER
+                  </th>
+                  <th>
+                    START DATE
+                  </th>
+                  <th>
+                    END DATE
+                  </th>
+                  <th>
+                    SPEND TIME
+                  </th>
+                  <th>
+                    ESTIMATED TIME
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @tasks.each do |task| %>
+                  <tr>
+                    <td>
+                      <%= task.title %>
+                    </td>
+                    <td>
+                      <%= task.description %>
+                    </td>
+                    <td>
+                      <%= task.status %>
+                    </td>
+                    <td>
+                      <%= task.user_id %>
+                    </td>
+                    <td>
+                      <%= task.start_date.strftime("%m/%d/%Y") %>
+                    </td>
+                    <td>
+                      <%= task.end_date.strftime("%m/%d/%Y") %>
+                    </td>
+                    <td>
+                      <%= task.spend_time %>
+                    </td>
+                    <td>
+                      <%= task.estimated_time %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="element-wrapper">
+        <h6 class="element-header">
+          Active Task
+        </h6>
+        <div class="element-box">
+          <div class="element-header">
+            My Active task
+          </div>
+          <div class="table-responsive">
+            <table class="table table-lightborder">
+              <thead>
+                <tr>
+                  <th>
+                    TITLE
+                  </th>
+                  <th>
+                    DESCRIPTION
+                  </th>
+                  <th>
+                    STATUS
+                  </th>
+                  <th>
+                    USER
+                  </th>
+                  <th>
+                    START DATE
+                  </th>
+                  <th>
+                    END DATE
+                  </th>
+                  <th>
+                    SPEND TIME
+                  </th>
+                  <th>
+                    ESTIMATED TIME
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @activetasks.each do |task| %>
+                  <tr>
+                    <td>
+                      <%= task.title %>
+                    </td>
+                    <td>
+                      <%= task.description %>
+                    </td>
+                    <td>
+                      <%= task.status %>
+                    </td>
+                    <td>
+                      <%= task.user_id %>
+                    </td>
+                    <td>
+                      <%= task.start_date.strftime("%m/%d/%Y") %>
+                    </td>
+                    <td>
+                      <%= task.end_date.strftime("%m/%d/%Y") %>
+                    </td>
+                    <td>
+                      <%= task.spend_time %>
+                    </td>
+                    <td>
+                      <%= task.estimated_time %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-4 d-xxxl-none">
+    <!--START - Top Selling Chart-->
+    <div class="element-wrapper">
+      <h6 class="element-header">
+        Top Selling Today
+      </h6>
+      <div class="element-box">
+        <div class="el-chart-w"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+          <canvas height="150" id="donutChart" width="150" class="chartjs-render-monitor" style="display: block; height: 167px; width: 167px;"></canvas>
+          <div class="inside-donut-chart-label">
+            <strong>142</strong><span>Total Orders</span>
+          </div>
+        </div>
+        <div class="el-legend condensed">
+          <div class="row">
+            <div class="col-auto col-xxxxl-6 ml-sm-auto mr-sm-auto col-6">
+              <div class="legend-value-w">
+                <div class="legend-pin legend-pin-squared" style="background-color: #6896f9;"></div>
+                <div class="legend-value">
+                  <span>Prada</span>
+                  <div class="legend-sub-value">
+                    14 Pairs
+                  </div>
+                </div>
+              </div>
+              <div class="legend-value-w">
+                <div class="legend-pin legend-pin-squared" style="background-color: #85c751;"></div>
+                <div class="legend-value">
+                  <span>Maui Jim</span>
+                  <div class="legend-sub-value">
+                    26 Pairs
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 d-lg-none d-xxl-block">
+              <div class="legend-value-w">
+                <div class="legend-pin legend-pin-squared" style="background-color: #806ef9;"></div>
+                <div class="legend-value">
+                  <span>Gucci</span>
+                  <div class="legend-sub-value">
+                    17 Pairs
+                  </div>
+                </div>
+              </div>
+              <div class="legend-value-w">
+                <div class="legend-pin legend-pin-squared" style="background-color: #d97b70;"></div>
+                <div class="legend-value">
+                  <span>Armani</span>
+                  <div class="legend-sub-value">
+                    12 Pairs
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--END - Top Selling Chart-->
+  </div>
+  <div class="d-none d-xxxl-block col-xxxl-6">
+    <div class="element-wrapper">
+      <h6 class="element-header">
+        Task Status
+      </h6>
+      <div class="element-box">
+        <% @tasks.each do |task| %>
+        <div class="os-progress-bar primary">
+          <div class="bar-labels">
+            <div class="bar-label-left">
+              <span class="bigger"><%= task.title %></span>
+            </div>
+            <div class="bar-label-right">
+              <span class="info"><%= task.status %></span>
+            </div>
+          </div>
+          <div class="bar-level-1" style="width: 100%">
+            <div class="bar-level-2" style="width: 70%">
+              <div class="bar-level-3" style="width: 40%"></div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="d-xxxl-block col-sm-6">
+    <div class="element-wrapper">
+      <h6 class="element-header">
+        Task Status
+      </h6>
+      <div class="element-box">
+        <h5 class="form-header">
+          Active Task progressbar
+        </h5>
+        <div class="form-desc">
+        </div>
+        <% @tasks.each do |task| %>
+        <div class="os-progress-bar primary">
+          <div class="bar-labels">
+            <div class="bar-label-left">
+              <span class="bigger"><%= task.title %></span>
+            </div>
+            <div class="bar-label-right">
+              <span class="info"><%= task.status %></span>
+            </div>
+          </div>
+          <div class="bar-level-1" style="width: 100%">
+            <div class="bar-level-2" style="width: 70%">
+              <div class="bar-level-3" style="width: 40%"></div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="element-wrapper col-sm-6">
+    <h6 class="element-header">
+      Active Project
+    </h6>
+    <div class="element-box">
+      <h5 class="form-header">
+        Active Project with manager
+      </h5>
+      <div class="form-desc">
+      </div>
+      <div class="table-responsive">
+        <table class="table table-lightborder">
+          <thead>
+            <tr>
+              <th class="text-center">
+                Project
+              </th>
+              <th class="text-center">
+                manager
+              </th>
+              <th class="text-center">
+                Status
+              </th>
+            </tr>
+          </thead>
+          <tbody class="text-center">
+            <% @projects.each do |project| %>
+              <tr>
+                <td>
+                  <%= project.title %>
+                </td>
+                <td>
+                  <%= link_to project.manager.name, project.manager %>
+                </td>
+                <td>
+                  <%= project.active  %>
+                </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

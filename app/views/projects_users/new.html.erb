@@ -1,0 +1,22 @@
+<% content_for :breadcrumb do %>
+  <!--------------------
+  START - Breadcrumbs
+  -------------------->
+  <ul class="breadcrumb">
+    <li class="breadcrumb-item">
+      <span>Home/project_users/new</span>
+    </li>
+  </ul>
+  <!--------------------
+  END - Breadcrumbs
+  -------------------->
+<% end %>
+<h1>New Projects User</h1>
+
+<%= render 'form', projects_user: @projects_user %>
+
+<h3 class="text-center ">
+  <div class="btn btn-light btn-outline-dark">
+    <%= link_to 'Back', projects_users_path %>
+  </div>
+</h3>

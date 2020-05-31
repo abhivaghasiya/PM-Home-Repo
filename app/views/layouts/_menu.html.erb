@@ -1,0 +1,173 @@
+<!--------------------
+START - Main Menu
+-------------------->
+<div class="menu-w color-scheme-light color-style-transparent menu-position-side menu-side-left menu-layout-compact sub-menu-style-over sub-menu-color-bright selected-menu-color-light menu-activated-on-hover menu-has-selected-link">
+  <div class="logo-w">
+    <a class="logo" href="<%= root_path %>">
+      <div class="logo-element"></div>
+      <div class="logo-label">
+        Clean Admin
+      </div>
+    </a>
+  </div>
+  <div class="logged-user-w avatar-inline">
+    <div class="logged-user-i">
+      <div class="avatar-w">
+        <%= image_tag 'img/avatar1.jpg' %>
+        <!-- <img alt="" src="img/avatar1.jpg"> -->
+      </div>
+      <div class="logged-user-info-w">
+        <div class="logged-user-name">
+          <span><%= current_user.name %></span>
+        </div>
+        <div class="logged-user-role">
+          <span><%= current_user.role %></span>
+        </div>
+      </div>
+      <div class="logged-user-toggler-arrow">
+        <div class="os-icon os-icon-chevron-down"></div>
+      </div>
+      <div class="logged-user-menu color-style-bright" style="background: #3e4b5b; padding: 10px; border-radius: 10px 48px;">
+        <div class="logged-user-avatar-info">
+          <div class="avatar-w">
+            <%= image_tag 'img/avatar1.jpg' %>
+            <!-- <img alt="" src="img/avatar1.jpg"> -->
+          </div>
+          <div class="logged-user-info-w">
+            <div class="logged-user-name">
+              <span><%= current_user.name %></span>
+            </div>
+            <div class="logged-user-role">
+              <span><%= current_user.role %></span>
+            </div>
+          </div>
+        </div>
+        <div class="bg-icon">
+          <i class="os-icon os-icon-wallet-loaded"></i>
+        </div>
+        <ul>
+          <li>
+            <a href="apps_email.html"><i class="os-icon os-icon-mail-01"></i><span>Incoming Mail</span></a>
+          </li>
+          <li>
+            <a href="<%= users_path %>"><i class="os-icon os-icon-user-male-circle2"></i><span>Profile Details</span></a>
+          </li>
+          <% if current_user %>
+            <li>
+              <a href="<%= destroy_user_session_path %>"><i class="os-icon os-icon-signs-11"></i><span>Sing out</span></a>
+            </li>
+            <% else %>
+            <li>
+              <a href="<%= new_user_registration_path %>"><i class="os-icon os-icon-others-43"></i><span>Sing up</span></a>
+            </li>
+            <li>
+              <a href="<%= new_user_session_path %>"><i class="os-icon os-icon-signs-11"></i><span>Sing in</span></a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <h1 class="menu-page-header">
+    Page Header
+  </h1>
+    <ul class="main-menu">
+
+
+    <!-- Test code -->
+    <li class="sub-header">
+      <span>Layouts</span>
+    </li>
+    <li class="selected has-sub-menu" id="liDashboard">
+      <a>
+        <div class="icon-w">
+          <div class="os-icon os-icon-layout"></div>
+        </div>
+        <span>Dashboard</span>
+      </a>
+      <div class="sub-menu-w">
+        <div class="sub-menu-header">
+          Dashboard
+        </div>
+        <div class="sub-menu-icon">
+          <i class="os-icon os-icon-layout"></i>
+        </div>
+        <div class="sub-menu-i">
+          <ul class="sub-menu">
+            <li>
+              <a href="index.html">Dashboard 1</a>
+            </li>
+            <li>
+              <a href="apps_crypto.html">Crypto Dashboard <strong class="badge badge-danger">Hot</strong></a>
+            </li>
+            <li>
+              <a href="apps_support_dashboard.html">Dashboard 3</a>
+            </li>
+            <li>
+              <a href="apps_projects.html">Dashboard 4</a>
+            </li>
+            <li>
+              <a href="apps_bank.html">Dashboard 5</a>
+            </li>
+            <li>
+              <a href="layouts_menu_top_image.html">Dashboard 6</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+    <!-- Test code -->
+
+
+    <li class="sub-header">
+      <span>Layouts</span>
+    </li>
+    <li class="selected has-sub-menu">
+      <a  href="<%= root_path %>">
+        <div class="icon-w">
+          <div class="os-icon os-icon-layout"></div>
+        </div>
+        <span>Dashboard</span></a>
+    </li>
+    <li class="has-sub-menu">
+      <a href="index.html">
+        <div class="icon-w">
+          <div class="os-icon os-icon-grid"></div>
+        </div>
+        <span>Activity</span></a>
+    </li>
+    <li class=" has-sub-menu">
+      <a href="<%= users_path %>">
+        <div class="icon-w">
+          <div class="os-icon os-icon-users"></div>
+        </div>
+        <span>Users</span></a>
+    </li>
+    <li class=" has-sub-menu">
+      <a href="<%= projects_path %>">
+        <div class="icon-w">
+          <div class="os-icon os-icon-zap"></div>
+        </div>
+        <span>Projects</span></a>
+    </li>
+    <li class=" has-sub-menu">
+      <a href="<%= calender_path %>">
+        <div class="icon-w">
+          <div class="os-icon os-icon-edit-32"></div>
+        </div>
+        <span>Calender</span></a>
+    </li>
+  </ul>
+</div>
+<!--------------------
+END - Main Menu
+-------------------->
+
+
+<style media="screen">
+  .menu-w.menu-layout-compact ul.main-menu > li.has-sub-menu > a:before {
+    content: none;
+    font-size: 7px;
+    right: 5px;
+}
+</style>

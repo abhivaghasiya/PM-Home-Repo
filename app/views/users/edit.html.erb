@@ -1,0 +1,39 @@
+<% content_for :breadcrumb do %>
+  <!--------------------
+  START - Breadcrumbs
+  -------------------->
+  <ul class="breadcrumb">
+    <li class="breadcrumb-item">
+      <span>
+        <a href="<%= root_path %>"> home</a> /
+        <a href="<%= users_path %>"> uaers </a> /
+        edit
+      </span>
+    </li>
+  </ul>
+  <!--------------------
+  END - Breadcrumbs
+  -------------------->
+<% end %>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="element-wrapper">
+      <h3 class="element-header col-sm-6" style="margin-left: 312px;">
+        <i class="os-icon os-icon-edit"></i>
+        Editing User
+        <p id="notice"><%= notice %></p>
+      </h3>
+      <div class="text-right col-sm-6" style="margin-left: 312px;"">
+        <div class="btn btn-light btn-outline-dark">
+          <%= link_to 'Show', @user %>
+        </div>
+        <div class="btn btn-light btn-outline-dark">
+          <%= link_to '<< Back', users_path %>
+        </div>
+      </div>
+      <br>
+        <%= render 'form', user: @user %>
+      <br>
+    </div>
+  </div>
+</div>
