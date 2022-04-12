@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'kaminari'
 
 
-gem 'nokogiri', '1.10.7'
+gem 'nokogiri', '1.13.4'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
